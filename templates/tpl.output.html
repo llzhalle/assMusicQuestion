@@ -1,0 +1,248 @@
+<p>{QUESTIONTEXT}</p>
+<div id="score{ID}" class="note-canvas">
+    <canvas width="760"
+    style="-webkit-transform: scale(0.8); -moz-transform: scale(0.8); -ms-transform: scale(0.8); -o-transform: scale(0.8); transform: scale(0.8);"></canvas>
+</div>
+<div id="{ID}" class="klavier">
+</div>
+<input id="selectedValues" name="selectedValues" type="hidden" value='{selectedValues}'/>
+
+<!-- Add Toggle Button to switch on/off Keyboard Sounds -->
+<label class="toggle">
+  <input id="toggleswitchsound" type="checkbox">
+  <span class="roundbutton"></span>
+</label>
+<div class="sounds">
+  {SOUND} <span id="status">{ON}</span>
+</div>
+
+<script type="text/javascript">
+    
+    var inputsound = document.getElementById('toggleswitchsound'),
+    outputtextsound = document.getElementById('status');
+
+    inputsound.addEventListener('change',function(){
+        if(this.checked) {
+            outputtextsound.innerHTML = "{OFF}";
+        } else {
+            outputtextsound.innerHTML = "{ON}";
+        }
+    });
+</script>
+
+<!-- Add Toggle Button to switch scale or chord Design -->
+<label class="toggle">
+  <input id="toggleswitchscalechord" type="checkbox">
+  <span class="roundbutton"></span>
+</label>
+<div class="sounds">
+  {DISPLAYFORMAT} <span id="statusscalechord">{SCALE}</span>
+</div>
+
+<script type="text/javascript">
+    
+    var inputscalechord = document.getElementById('toggleswitchscalechord'),
+    outputtextscalechord = document.getElementById('statusscalechord'),
+    scalechordSwitch = 1;
+
+    inputscalechord.addEventListener('change',function(){
+        if(this.checked) {
+            outputtextscalechord.innerHTML = "{CHORD}";
+            scalechordSwitch = 24;
+
+        } else {
+            outputtextscalechord.innerHTML = "{SCALE}";
+            scalechordSwitch = 1;
+        }
+    });
+
+</script>
+
+<style type="text/css">
+
+.sounds {
+    font-size: 2rem;
+    font-family: sans-serif;
+    padding: 2rem 0 2rem 2rem;
+   
+}
+
+.toggle {
+    margin:0 0 0 2rem;
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3.4rem;
+}
+
+.toggle input {
+    display: none;
+}
+
+.roundbutton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: #33455e;
+    display: block;
+    transition: all 0.3s;
+    border-radius: 3.4rem;
+    cursor: pointer;
+}
+
+.roundbutton:before {
+    position: absolute;
+    content: "";
+    height: 2.4rem;
+    width: 2.5rem;
+    border-radius: 100%;
+    display: block;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+input:checked + .roundbutton {
+    background-color: #FF6E48;
+}
+
+input:checked + .roundbutton:before  {
+    transform: translate(2.6rem, 0);
+}
+
+</style>
+
+<script>
+    $(document).ready(function ($) {
+        $("#{ID}").klavier({
+            startKey: 48,
+            endKey: 72,
+            onSelectedValuesChanged: function (values) {
+                $('#selectedValues').val("[" + values + "]");
+                renderKeys(values, $('#score{ID} canvas')[0]);
+            }
+        }).klavier("setSelectedValues", {selectedValues});
+    });
+</script>
+
+<!-- Add Sounds for Keybord by selector klavier-key and using data-value from 48 to 72 -->
+<script>
+
+    $(document).ready(function(){
+       
+        $('.klavier-key').on('click', function(){
+
+        if (outputtextsound.innerHTML !== "{OFF}") {
+
+            if($(this).attr("data-value") == 48){
+                ton48.play();
+            }
+            if($(this).attr("data-value") == 49){
+                ton49.play();
+            }
+            if($(this).attr("data-value") == 50){
+                ton50.play();
+            }
+            if($(this).attr("data-value") == 51){
+                ton51.play();
+            }
+            if($(this).attr("data-value") == 52){
+                ton52.play();
+            }
+            if($(this).attr("data-value") == 53){
+                ton53.play();
+            }
+            if($(this).attr("data-value") == 54){
+                ton54.play();
+            }
+            if($(this).attr("data-value") == 55){
+                ton55.play();
+            }
+            if($(this).attr("data-value") == 56){
+                ton56.play();
+            }
+            if($(this).attr("data-value") == 57){
+                ton57.play();
+            }
+            if($(this).attr("data-value") == 58){
+                ton58.play();
+            }
+            if($(this).attr("data-value") == 59){
+                ton59.play();
+            }
+            if($(this).attr("data-value") == 60){
+                ton60.play();
+            }
+            if($(this).attr("data-value") == 61){
+                ton61.play();
+            }
+            if($(this).attr("data-value") == 62){
+                ton62.play();
+            }
+            if($(this).attr("data-value") == 63){
+                ton63.play();
+            }
+            if($(this).attr("data-value") == 64){
+                ton64.play();
+            }
+            if($(this).attr("data-value") == 65){
+                ton65.play();
+            }
+            if($(this).attr("data-value") == 66){
+                ton66.play();
+            }
+            if($(this).attr("data-value") == 67){
+                ton67.play();
+            }
+            if($(this).attr("data-value") == 68){
+                ton68.play();
+            }
+            if($(this).attr("data-value") == 69){
+                ton69.play();
+            }
+            if($(this).attr("data-value") == 70){
+                ton70.play();
+            }
+            if($(this).attr("data-value") == 71){
+                ton71.play();
+            }
+            if($(this).attr("data-value") == 72){
+                ton72.play();
+            }         
+        };
+    });
+
+
+    });
+</script>
+
+<!-- Import soundfiles -->
+<audio id="ton48" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0041_Tr1.mp3" ></audio>
+<audio id="ton49" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0042_Tr1.mp3" ></audio>
+<audio id="ton50" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0043_Tr1.mp3" ></audio>
+<audio id="ton51" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0044_Tr1.mp3" ></audio>
+<audio id="ton52" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0045_Tr1.mp3" ></audio>
+<audio id="ton53" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0046_Tr1.mp3" ></audio>
+<audio id="ton54" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0047_Tr1.mp3" ></audio>
+<audio id="ton55" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0048_Tr1.mp3" ></audio>
+<audio id="ton56" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0049_Tr1.mp3" ></audio>
+<audio id="ton57" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0050_Tr1.mp3" ></audio>
+<audio id="ton58" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0051_Tr1.mp3" ></audio>
+<audio id="ton59" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0052_Tr1.mp3" ></audio>
+<audio id="ton60" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0053_Tr1.mp3" ></audio>
+<audio id="ton61" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0054_Tr1.mp3" ></audio>
+<audio id="ton62" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0055_Tr1.mp3" ></audio>
+<audio id="ton63" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0056_Tr1.mp3" ></audio>
+<audio id="ton64" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0057_Tr1.mp3" ></audio>
+<audio id="ton65" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0058_Tr1.mp3" ></audio>
+<audio id="ton66" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0059_Tr1.mp3" ></audio>
+<audio id="ton67" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0060_Tr1.mp3" ></audio>
+<audio id="ton68" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0061_Tr1.mp3" ></audio>
+<audio id="ton69" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0062_Tr1.mp3" ></audio>
+<audio id="ton70" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0063_Tr1.mp3" ></audio>
+<audio id="ton71" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0064_Tr1.mp3" ></audio>
+<audio id="ton72" src="./Customizing/Global/Plugins/Modules/TestQuestionPool/Questions/assMusicQuestion/sounds/ZOOM0065_Tr1.mp3" ></audio>
