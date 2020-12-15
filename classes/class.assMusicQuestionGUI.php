@@ -462,7 +462,7 @@ class assMusicQuestionGUI extends assQuestionGUI
      * @return string HTML Code with the answer specific feedback
      * @access public
      */
-    public function getSpecificFeedbackOutput($userSolution)
+    public function getSpecificFeedbackOutput($active_id, $pass)
     {
         return "";
     }
